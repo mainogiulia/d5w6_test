@@ -1,5 +1,6 @@
 package it.epicode.d5w6_test.trip;
 
+import it.epicode.d5w6_test.employee.Employee;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,4 +23,7 @@ public class Trip {
     @Enumerated(EnumType.STRING)
     private TripStatusEnum tripStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 }

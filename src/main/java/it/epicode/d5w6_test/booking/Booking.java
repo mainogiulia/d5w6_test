@@ -21,10 +21,10 @@ public class Booking {
     private String employeeNotes;
 
     @ManyToOne
-    @JoinColumn(name = "trip_id")
-    private Trip trip;
-
-    @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "trip_id")
+    private Trip trip;
 }
