@@ -12,13 +12,10 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
     @Column(nullable = false)
     private String destination;
-
-    @Column(nullable = false)
-    private LocalDate date;
-
+    @Column(name = "trip_date")
+    private LocalDate tripDate;
     @Column(name="trip_status",nullable = false)
     @Enumerated(EnumType.STRING)
     private TripStatusEnum tripStatus;

@@ -26,4 +26,9 @@ public class ExceptionHandlerClass {
 		}
 		return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 		}
+
+	@ExceptionHandler(value = SameDateException.class)
+	protected ResponseEntity<Object> prenotazioneOdierna(SameDateException e) {
+		return new ResponseEntity<>("Error: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+	}
 }

@@ -10,16 +10,13 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
     @Column(nullable = false)
     private String username;
-
     @Column(nullable = false)
     private String name;
-
     @Column(nullable = false)
     private String surname;
-
     @Column(nullable = false)
     private String email;
+    private String image;
 }

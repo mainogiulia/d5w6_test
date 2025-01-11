@@ -13,17 +13,14 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
     @Column(name = "booking_date", nullable = false)
     private LocalDate bookingDate;
-
     @Column(name = "employee_notes")
     private String employeeNotes;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
-
     @ManyToOne
     @JoinColumn(name = "trip_id")
     private Trip trip;
