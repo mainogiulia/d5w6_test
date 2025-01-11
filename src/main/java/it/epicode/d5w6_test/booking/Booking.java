@@ -3,6 +3,7 @@ package it.epicode.d5w6_test.booking;
 import it.epicode.d5w6_test.employee.Employee;
 import it.epicode.d5w6_test.trip.Trip;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -13,7 +14,7 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(name = "booking_date", nullable = false)
+    @Column(name = "booking_date")
     private LocalDate bookingDate;
     @Column(name = "employee_notes")
     private String employeeNotes;

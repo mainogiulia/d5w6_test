@@ -6,13 +6,16 @@ import it.epicode.d5w6_test.exceptions.SameDateException;
 import it.epicode.d5w6_test.trip.Trip;
 import it.epicode.d5w6_test.trip.TripService;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
 @Service
+@Validated
 public class BookingService {
     @Autowired
     private BookingRepo bookingRepo;
@@ -32,7 +35,7 @@ public class BookingService {
         return bookingRepo.findById(id).get();
     }
 
-    public Booking createBooking(BookingRequest bookingRequest) {
+    public Booking createBooking(@Valid BookingRequest bookingRequest) {
         if (bookingRepo.existsByEmployeeAndBookingDate(bookingRequest.getEmployeeId(), bookingRequest.getBookingDate())) {
             throw new SameDateException("Employee already has a booking for this date, please choose another date: " + bookingRequest.getBookingDate());
         }
@@ -46,7 +49,7 @@ public class BookingService {
         return bookingRepo.save(booking);
     }
 
-    public Booking updateBooking(Long id,Booking updatedBooking) {
+    public Booking updateBooking(Long id, @Valid Booking updatedBooking) {
         Booking booking = findById(id);
         if (bookingRepo.existsByEmployeeAndBookingDate(updatedBooking.getEmployee().getId(), updatedBooking.getBookingDate())) {
             throw new SameDateException("Employee already has a booking for this date, please choose another date: " + updatedBooking.getBookingDate());
