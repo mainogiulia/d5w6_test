@@ -1,5 +1,6 @@
 package it.epicode.d5w6_test.trip;
 
+import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import it.epicode.d5w6_test.employee.Employee;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;

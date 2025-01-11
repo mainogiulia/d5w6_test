@@ -13,16 +13,12 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column
-    @NotBlank(message = "Username cannot be empty")
     private String username;
     @Column
-    @NotBlank(message = "Name cannot be empty")
     private String name;
     @Column
-    @NotBlank(message = "Surname cannot be empty")
     private String surname;
     @Column
-    @Email(message = "Email has to be a valid email address")
     private String email;
     private String image;
 }
